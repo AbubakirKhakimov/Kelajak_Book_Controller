@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Books controller</string>
+    <string name="sum">sum</string>
+    <string name="all">All</string>
+    <string name="all_reviews">reviews</string>
+    <string name="no_reviews">No reviews yet</string>
+    <string name="all_reviews_of">All reviews of</string>
+    <string name="reviews">reviews</string>
+</resources>
