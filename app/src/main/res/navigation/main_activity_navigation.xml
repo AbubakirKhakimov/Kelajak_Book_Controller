@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_termsOfTradeFragment"
+            app:destination="@id/termsOfTradeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_socialMediaRefFragment"
+            app:destination="@id/socialMediaRefFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBookFragment"
@@ -28,4 +34,14 @@
         android:name="com.x.a_technologies.books_controller.fragments.ReviewsFragment"
         android:label="fragment_reviews"
         tools:layout="@layout/fragment_reviews" />
+    <fragment
+        android:id="@+id/socialMediaRefFragment"
+        android:name="com.x.a_technologies.books_controller.fragments.SocialMediaRefFragment"
+        android:label="fragment_social_media_ref"
+        tools:layout="@layout/fragment_social_media_ref" />
+    <fragment
+        android:id="@+id/termsOfTradeFragment"
+        android:name="com.x.a_technologies.books_controller.fragments.TermsOfTradeFragment"
+        android:label="fragment_terms_of_trade"
+        tools:layout="@layout/fragment_terms_of_trade" />
 </navigation>

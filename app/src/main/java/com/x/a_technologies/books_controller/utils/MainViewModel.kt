@@ -12,6 +12,8 @@ import com.google.firebase.database.ValueEventListener
 import com.x.a_technologies.books_controller.datas.DatabaseRef
 import com.x.a_technologies.books_controller.models.Book
 import com.x.a_technologies.books_controller.models.Review
+import com.x.a_technologies.books_controller.models.SocialMediaReferences
+import com.x.a_technologies.books_controller.models.TermsOfTrade
 import java.io.ByteArrayOutputStream
 
 class MainViewModel:ViewModel() {
@@ -20,6 +22,8 @@ class MainViewModel:ViewModel() {
     val booksData = MutableLiveData<ArrayList<Book>>()
     val imageUrlData = MutableLiveData<String>()
     val reviewsData = MutableLiveData<ArrayList<Review>>()
+    val socialMediaRefData = MutableLiveData<SocialMediaReferences>()
+    val termsOfTradeData = MutableLiveData<ArrayList<TermsOfTrade>>()
     val error = MutableLiveData<String>()
 
     fun loadCategories(){
@@ -91,6 +95,36 @@ class MainViewModel:ViewModel() {
                 reviewsList.reverse()
 
                 reviewsData.value = reviewsList
+            }
+
+            override fun onCancelled(mError: DatabaseError) {
+                error.value = "Error!"
+            }
+        })
+    }
+
+    fun loadSocialMediaRef(){
+        DatabaseRef.socialMediaRef.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                socialMediaRefData.value = snapshot.getValue(SocialMediaReferences::class.java)
+            }
+
+            override fun onCancelled(mError: DatabaseError) {
+                error.value = "Error!"
+            }
+        })
+    }
+
+    fun loadTermsOfTrade(){
+        DatabaseRef.termsOfTradeRef.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = ArrayList<TermsOfTrade>()
+
+                for (item in snapshot.children){
+                    list.add(item.getValue(TermsOfTrade::class.java)!!)
+                }
+
+                termsOfTradeData.value = list
             }
 
             override fun onCancelled(mError: DatabaseError) {
