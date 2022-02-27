@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Add book"
+            android:text="@string/add_book"
             android:textColor="@color/main_color"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -67,7 +67,7 @@
                 android:layout_marginTop="8dp"
                 android:drawableEnd="@drawable/ic_baseline_attach_file_24"
                 android:gravity="center"
-                android:text="Choose"
+                android:text="@string/choose"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book name"
+                android:hint="@string/name"
                 android:padding="16dp" />
 
             <EditText
@@ -87,7 +87,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Author name"
+                android:hint="@string/author_name"
                 android:padding="16dp" />
 
             <FrameLayout
@@ -120,7 +120,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/white"
-                android:text="Add category"
+                android:text="@string/add_category"
                 android:textColor="@color/main_color"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -135,7 +135,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book count"
+                android:hint="@string/count"
                 android:inputType="number"
                 android:padding="16dp" />
 
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book language"
+                android:hint="@string/language"
                 android:padding="16dp" />
 
             <EditText
@@ -155,7 +155,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book alphabet type"
+                android:hint="@string/alphabet_type"
                 android:padding="16dp" />
 
             <EditText
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book pages count"
+                android:hint="@string/pages_count"
                 android:inputType="number"
                 android:padding="16dp" />
 
@@ -175,7 +175,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book coating type"
+                android:hint="@string/coating_type"
                 android:padding="16dp" />
 
             <EditText
@@ -184,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book manufacturing company"
+                android:hint="@string/manufacturing_company"
                 android:padding="16dp" />
 
             <EditText
@@ -194,7 +194,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book more information"
+                android:hint="@string/more_information"
                 android:padding="16dp" />
 
             <EditText
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book rent price"
+                android:hint="@string/rent_price"
                 android:padding="16dp" />
 
             <EditText
@@ -214,7 +214,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/search_edit_text_backgraund"
-                android:hint="Book selling price"
+                android:hint="@string/selling_price"
                 android:padding="16dp" />
 
             <FrameLayout
@@ -230,7 +230,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:gravity="center"
-                    android:text="Save"
+                    android:text="@string/save"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 

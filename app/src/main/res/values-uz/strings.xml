@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Books controller</string>
+    <string name="sum">so\'m</string>
+    <string name="no_reviews">Hozircha fikrlar yoʻq</string>
+    <string name="all_reviews_of">haqidagi barcha fikrlar</string>
+    <string name="reviews">ta fikr</string>
+    <string name="notAvailable">Mavjud emas</string>
+    <string name="available">Mavjud</string>
+    <string name="error">Xatolik!</string>
+    <string name="add_category">Kategoriya qo\'shing</string>
+    <string name="category_name">Kategoriya nomi</string>
+    <string name="close">Yopish</string>
+    <string name="save">Saqlash</string>
+    <string name="rent_price">Ijara narxi</string>
+    <string name="selling_price">Sotuv narxi</string>
+    <string name="add_book">Kitob qo\'shish</string>
+    <string name="choose">Tanlang</string>
+    <string name="name">Nomi</string>
+    <string name="author_name">Muallif nomi</string>
+    <string name="count">Soni</string>
+    <string name="language">Tili</string>
+    <string name="alphabet_type">Alifbo turi</string>
+    <string name="pages_count">Sahifalar soni</string>
+    <string name="coating_type">Muqova turi</string>
+    <string name="manufacturing_company">Nashryot nomi</string>
+    <string name="more_information">Batafsil ma\'lumot</string>
+    <string name="search_books">Kitoblarni qidirish</string>
+    <string name="social_media">Ijtimoiy tarmoqlar</string>
+    <string name="phone_number">Telefon raqami</string>
+    <string name="terms_of_trade">Savdo shartlari</string>
+    <string name="write_a_review">Javob yozish</string>
+    <string name="title">Sarlavha</string>
+    <string name="text" translatable="false">Matn</string>
+    <string name="edit_book">Kitobni tahrirlash</string>
+    <string name="please_fill_in_all_the_boxes">Iltimos, barcha maydonlarni toʻldiring!</string>
+    <string name="please_choose_a_picture">Iltimos, rasm tanlang!</string>
+    <string name="successfully_saved">Muvaffaqiyatli saqlandi!</string>
+    <string name="please_enter_a_category_name">Kategoriya nomini kiriting!</string>
+    <string name="category_all">Barchasi</string>
+    <string name="english">Ingliz</string>
+    <string name="russian">Rus</string>
+    <string name="uzbek">O\'zbek</string>
+</resources>

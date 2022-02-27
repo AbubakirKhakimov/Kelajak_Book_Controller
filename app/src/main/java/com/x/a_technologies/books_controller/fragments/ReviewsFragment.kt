@@ -66,7 +66,7 @@ class ReviewsFragment : Fragment(), ReviewsAdapterCallBack {
         }
 
         viewModel.error.observe(requireActivity()){
-            Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
             isLoading(false)
         }
     }

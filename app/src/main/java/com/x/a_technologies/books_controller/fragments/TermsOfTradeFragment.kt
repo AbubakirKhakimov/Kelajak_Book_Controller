@@ -40,7 +40,7 @@ class TermsOfTradeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        termsOfTradeAdapter = TermsOfTradeAdapter(termsList)
+        termsOfTradeAdapter = TermsOfTradeAdapter(termsList, requireActivity())
         binding.termsRv.adapter = termsOfTradeAdapter
 
         isDataLoading(true)
@@ -62,8 +62,22 @@ class TermsOfTradeFragment : Fragment() {
     }
 
     private fun saveChanged(){
+        isSaveLoading(true)
         val queryHashMap = HashMap<String, Any>()
-        // o'zgarganlarini o'zini queryHashMap ga solish va saqlash for orqali
+
+        for (item in termsList){
+            queryHashMap[item.termsOfTradeId] = item
+        }
+
+        DatabaseRef.termsOfTradeRef.updateChildren(queryHashMap).addOnCompleteListener {
+            if (it.isSuccessful){
+                Toast.makeText(requireActivity(), getString(R.string.successfully_saved), Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack()
+            }else{
+                Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
+            }
+            isSaveLoading(false)
+        }
     }
 
     private fun isSaveLoading(bool: Boolean) {
@@ -96,7 +110,7 @@ class TermsOfTradeFragment : Fragment() {
         }
 
         viewModel.error.observe(requireActivity()){
-            Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
             binding.loadDataProgressBar.visibility = View.GONE
         }
     }

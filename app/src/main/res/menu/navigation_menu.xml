@@ -2,11 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/termsOfTradeFragment"
-        android:title="Terms of trade" />
+        android:id="@+id/termsOfTrade"
+        android:icon="@drawable/trade"
+        android:title="@string/terms_of_trade" />
 
     <item
-        android:id="@+id/socialMediaRefFragment"
-        android:title="Social media references" />
+        android:id="@+id/socialMediaRef"
+        android:icon="@drawable/ic_contact"
+        android:title="@string/social_media" />
+
+    <item
+        android:id="@+id/changeLanguage"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:title="@string/language" />
 
 </menu>

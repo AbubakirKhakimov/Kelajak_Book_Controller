@@ -73,11 +73,11 @@ class SocialMediaRefFragment : Fragment() {
 
         DatabaseRef.socialMediaRef.setValue(changedSocial).addOnCompleteListener {
             if (it.isSuccessful){
-                Toast.makeText(requireActivity(), "Successful saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), getString(R.string.successfully_saved), Toast.LENGTH_SHORT).show()
                 isSaveLoading(false)
                 findNavController().popBackStack()
             }else{
-                Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
                 isSaveLoading(false)
             }
         }
@@ -91,7 +91,7 @@ class SocialMediaRefFragment : Fragment() {
         }
 
         viewModel.error.observe(requireActivity()) {
-            Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
             binding.loadDataProgressBar.visibility = View.GONE
         }
     }

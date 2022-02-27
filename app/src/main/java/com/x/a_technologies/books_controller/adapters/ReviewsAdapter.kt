@@ -74,7 +74,7 @@ class ReviewsAdapter(val reviewsList:ArrayList<Review>, val bookId:String, val c
                     }else{
                         item.adminMessage = null
                         item.adminMessageSendTimeMillis = null
-                        Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_SHORT).show()
                     }
                     isSendLoading(false, holder)
                 }
@@ -93,7 +93,7 @@ class ReviewsAdapter(val reviewsList:ArrayList<Review>, val bookId:String, val c
                         reviewsAdapterCallBack.itemDeletedListener()
                         notifyDataSetChanged()
                     }else{
-                        Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_SHORT).show()
                     }
                     isDeleteLoading(false, holder)
                 }

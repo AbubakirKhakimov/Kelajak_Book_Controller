@@ -1,10 +1,12 @@
 package com.x.a_technologies.books_controller.adapters
 
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.x.a_technologies.books_controller.R
 import com.x.a_technologies.books_controller.databinding.BooksListItemLayoutBinding
 import com.x.a_technologies.books_controller.models.Book
 
@@ -12,7 +14,7 @@ interface BooksListCallBack{
     fun booksListItemClickListener(position: Int)
 }
 
-class BooksListAdapter(val booksList:ArrayList<Book>, val booksListCallBack: BooksListCallBack):RecyclerView.Adapter<BooksListAdapter.ItemHolder>() {
+class BooksListAdapter(val booksList:ArrayList<Book>, val booksListCallBack: BooksListCallBack, val context: Context):RecyclerView.Adapter<BooksListAdapter.ItemHolder>() {
     inner class ItemHolder(val binding: BooksListItemLayoutBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -24,8 +26,8 @@ class BooksListAdapter(val booksList:ArrayList<Book>, val booksListCallBack: Boo
 
         holder.binding.bookName.text = item.name
         holder.binding.bookAuthorName.text = item.author
-        holder.binding.bookRentPrice.text = "${item.rentPrice} so'm"
-        holder.binding.bookSellingPrice.text = "${item.sellingPrice} so'm"
+        holder.binding.bookRentPrice.text = "${item.rentPrice} ${context.getString(R.string.sum)}"
+        holder.binding.bookSellingPrice.text = "${item.sellingPrice} ${context.getString(R.string.sum)}"
         Glide.with(holder.binding.root).load(item.imageUrl).into(holder.binding.bookImage)
         holder.binding.isAvailable.setBackgroundColor(getAvailableColor(item.count))
         holder.binding.isAvailable.text = getAvailableText(item.count)
@@ -40,11 +42,11 @@ class BooksListAdapter(val booksList:ArrayList<Book>, val booksListCallBack: Boo
         return booksList.size
     }
 
-    fun getAvailableText(count: Int):String{
+    private fun getAvailableText(count: Int):String{
         return if (count == 0){
-            "Not available"
+            context.getString(R.string.notAvailable)
         }else{
-            "Available"
+            context.getString(R.string.available)
         }
     }
 

@@ -105,7 +105,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
         binding.categorySpinner.adapter = spinnerAdapter
 
         if (currentBook != null){
-            binding.labelText.text = "Edit book"
+            binding.labelText.text = getString(R.string.edit_book)
             binding.toReviews.visibility = View.VISIBLE
             Glide.with(requireActivity()).load(currentBook!!.imageUrl).into(binding.bookImage)
             binding.bookName.setText(currentBook!!.name)
@@ -140,7 +140,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
             pagesCount.isEmpty() || coatingType.isEmpty() || manufacturingCompany.isEmpty() ||
             rentPrice.isEmpty() || sellingPrice.isEmpty() || moreInformation.isEmpty() || alphabetType.isEmpty()
         ) {
-            Toast.makeText(requireActivity(), "Please fill in all the boxes!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.please_fill_in_all_the_boxes), Toast.LENGTH_SHORT).show()
         } else {
             if (currentBook == null){
                 addBook()
@@ -167,7 +167,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
             currentBookKey = DatabaseRef.booksRef.push().key!!
             viewModel.writeImageDatabase(binding.bookImage, currentBookKey)
         } else {
-            Toast.makeText(requireActivity(), "Please choose a picture!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.please_choose_a_picture), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -178,7 +178,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
 
         viewModel.error.observe(requireActivity()){
             isLoading(false)
-            Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -204,13 +204,13 @@ class AddBookFragment : Fragment(), ImageCallBack {
 
         DatabaseRef.booksRef.child(currentBookKey).setValue(book).addOnCompleteListener {
             if (it.isSuccessful) {
-                Toast.makeText(requireActivity(), "Successfully saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), getString(R.string.successfully_saved), Toast.LENGTH_SHORT).show()
                 isLoading(false)
 
                 findNavController().popBackStack()
             } else {
                 isLoading(false)
-                Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -226,7 +226,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
             if (categoryName.isEmpty()) {
                 Toast.makeText(
                     requireActivity(),
-                    "Please enter a category name!",
+                    getString(R.string.please_enter_a_category_name),
                     Toast.LENGTH_SHORT
                 ).show()
             } else {

@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Social media"
+            android:text="@string/social_media"
             android:textColor="@color/main_color"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -69,7 +69,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/search_edit_text_backgraund"
-        android:hint="Phone number"
+        android:hint="@string/phone_number"
         android:inputType="phone"
         android:padding="16dp" />
 
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/search_edit_text_backgraund"
-        android:hint="Telegram"
+        android:hint="@string/telegram"
         android:padding="16dp" />
 
     <EditText
@@ -89,7 +89,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/search_edit_text_backgraund"
-        android:hint="Instagram"
+        android:hint="@string/instagram"
         android:padding="16dp" />
 
 </LinearLayout>

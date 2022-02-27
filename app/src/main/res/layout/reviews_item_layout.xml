@@ -31,7 +31,7 @@
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="8dp"
@@ -109,7 +109,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:background="@color/white"
-            android:hint="Write a review"
+            android:hint="@string/write_a_review"
             android:padding="8dp"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -174,7 +174,7 @@
                 android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Kelajak book"
+                android:text="@string/kelajak_book"
                 android:textColor="@color/gray"
                 android:textSize="14sp"
                 android:textStyle="bold" />

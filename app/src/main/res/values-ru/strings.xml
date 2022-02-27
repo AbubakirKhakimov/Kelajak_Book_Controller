@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Books controller</string>
+    <string name="sum">сум</string>
+    <string name="no_reviews">Пока нет отзывов</string>
+    <string name="all_reviews_of">Все отзывы о</string>
+    <string name="reviews">отзывов</string>
+    <string name="notAvailable">Недоступно</string>
+    <string name="available">Доступный</string>
+    <string name="error">Ошибка!</string>
+    <string name="add_category">Добавить категорию</string>
+    <string name="category_name">Название категории</string>
+    <string name="close">Отмена</string>
+    <string name="save">Сохранять</string>
+    <string name="rent_price">Цена аренды</string>
+    <string name="selling_price">Цена продажи</string>
+    <string name="add_book">Добавить книгу</string>
+    <string name="choose">Выберите</string>
+    <string name="name">Имя</string>
+    <string name="author_name">Имя автора</string>
+    <string name="count">Количество</string>
+    <string name="language">Язык</string>
+    <string name="alphabet_type">Тип алфавита</string>
+    <string name="pages_count">Количество страниц</string>
+    <string name="coating_type">Тип покрытия</string>
+    <string name="manufacturing_company">Производственная компания</string>
+    <string name="more_information">Больше информации</string>
+    <string name="search_books">Поиск книг</string>
+    <string name="social_media">Социальные сети</string>
+    <string name="phone_number">Телефонный номер</string>
+    <string name="terms_of_trade">Условия торговли</string>
+    <string name="write_a_review">Напишите ответ</string>
+    <string name="title">Заголовок</string>
+    <string name="text" translatable="false">Текст</string>
+    <string name="edit_book">Изменить книгу</string>
+    <string name="please_fill_in_all_the_boxes">Пожалуйста, заполните все поля!</string>
+    <string name="please_choose_a_picture">Пожалуйста, выберите картинку!</string>
+    <string name="successfully_saved">Успешно сохранено!</string>
+    <string name="please_enter_a_category_name">Пожалуйста, введите название категории!</string>
+    <string name="category_all">Все</string>
+    <string name="english">Английский</string>
+    <string name="russian">Русский</string>
+    <string name="uzbek">Узбекский</string>
+</resources>
