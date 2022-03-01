@@ -15,12 +15,10 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.x.a_technologies.books_controller.R
 import com.x.a_technologies.books_controller.adapters.CategorySpinnerAdapter
-import com.x.a_technologies.books_controller.adapters.ReviewsAdapter
 import com.x.a_technologies.books_controller.databinding.AddCategoryLayoutBinding
 import com.x.a_technologies.books_controller.databinding.FragmentAddBookBinding
 import com.x.a_technologies.books_controller.datas.DatabaseRef
 import com.x.a_technologies.books_controller.models.Book
-import com.x.a_technologies.books_controller.models.Review
 import com.x.a_technologies.books_controller.utils.ImageCallBack
 import com.x.a_technologies.books_controller.utils.ImageTracker
 import com.x.a_technologies.books_controller.utils.MainViewModel
@@ -32,7 +30,7 @@ class AddBookFragment : Fragment(), ImageCallBack {
     lateinit var binding: FragmentAddBookBinding
     lateinit var viewModel:MainViewModel
     lateinit var spinnerAdapter: CategorySpinnerAdapter
-    lateinit var currentBookKey:String
+    lateinit var uploadedBookId:String
     var currentBook: Book? = null
     var categoriesList = ArrayList<String>()
     var isImageSelected: Boolean = false
@@ -151,21 +149,25 @@ class AddBookFragment : Fragment(), ImageCallBack {
     }
 
     private fun editBook(){
-        currentBookKey = currentBook!!.bookId
+        uploadedBookId = currentBook!!.bookId
         isLoading(true)
 
         if (isImageSelected){
-            viewModel.writeImageDatabase(binding.bookImage, currentBookKey)
+            viewModel.writeImageDatabase(binding.bookImage, uploadedBookId)
         }else{
-            saveBookDatabase(currentBook!!.imageUrl)
+            saveBookDatabase(
+                currentBook!!.imageUrl,
+                currentBook!!.searchedCount,
+                currentBook!!.addedTimeMillis
+            )
         }
     }
 
     private fun addBook(){
         if (isImageSelected) {
             isLoading(true)
-            currentBookKey = DatabaseRef.booksRef.push().key!!
-            viewModel.writeImageDatabase(binding.bookImage, currentBookKey)
+            uploadedBookId = DatabaseRef.booksRef.push().key!!
+            viewModel.writeImageDatabase(binding.bookImage, uploadedBookId)
         } else {
             Toast.makeText(requireActivity(), getString(R.string.please_choose_a_picture), Toast.LENGTH_SHORT).show()
         }
@@ -173,7 +175,15 @@ class AddBookFragment : Fragment(), ImageCallBack {
 
     private fun initObservers(){
         viewModel.imageUrlData.observe(requireActivity()){
-            saveBookDatabase(it)
+            if (currentBook == null){
+                saveBookDatabase(it)
+            }else{
+                saveBookDatabase(
+                    it,
+                    currentBook!!.searchedCount,
+                    currentBook!!.addedTimeMillis
+                )
+            }
         }
 
         viewModel.error.observe(requireActivity()){
@@ -182,27 +192,27 @@ class AddBookFragment : Fragment(), ImageCallBack {
         }
     }
 
-    private fun saveBookDatabase(imageUrl: String) {
+    private fun saveBookDatabase(imageUrl: String, searchedCount:Int = 0, addedTimeMillis:Long = Date().time) {
         val book = Book(
-            currentBookKey,
+            uploadedBookId,
             imageUrl,
             count.toInt(),
             name,
             author,
             moreInformation,
-            Date().time,
+            addedTimeMillis,
             language,
             alphabetType,
             pagesCount.toInt(),
             coatingType,
             manufacturingCompany,
             categoriesList[binding.categorySpinner.selectedItemPosition],
-            0,
+            searchedCount,
             rentPrice,
             sellingPrice
         )
 
-        DatabaseRef.booksRef.child(currentBookKey).setValue(book).addOnCompleteListener {
+        DatabaseRef.booksRef.child(uploadedBookId).setValue(book).addOnCompleteListener {
             if (it.isSuccessful) {
                 Toast.makeText(requireActivity(), getString(R.string.successfully_saved), Toast.LENGTH_SHORT).show()
                 isLoading(false)

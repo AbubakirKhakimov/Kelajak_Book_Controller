@@ -11,16 +11,25 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/title"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@drawable/search_edit_text_backgraund"
             android:hint="@string/title"
-            android:padding="16dp" />
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -31,8 +40,8 @@
             <ProgressBar
                 android:id="@+id/deletingProgressBar"
                 android:layout_width="30dp"
-                android:visibility="gone"
-                android:layout_height="30dp" />
+                android:layout_height="30dp"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/deleteLayer"
@@ -45,16 +54,25 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/mainText"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:background="@drawable/search_edit_text_backgraund"
         android:hint="@string/text"
-        android:padding="16dp" />
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

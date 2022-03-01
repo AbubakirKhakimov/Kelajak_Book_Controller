@@ -74,11 +74,7 @@ class HomeFragment : Fragment(), CategoriesCallBack, BooksListCallBack, SearchRe
         }
 
         binding.search.addTextChangedListener {
-            if (it!!.isEmpty()){
-                isSearched(false)
-            }else{
-                isSearched(true)
-            }
+            isSearched(it!!.isNotEmpty())
 
             searchResultsAdapter.filter.filter(it.toString())
         }
@@ -114,6 +110,10 @@ class HomeFragment : Fragment(), CategoriesCallBack, BooksListCallBack, SearchRe
         }
 
         initRecycler()
+    }
+
+    override fun onResume() {
+        super.onResume()
         loadData()
     }
 
@@ -139,7 +139,9 @@ class HomeFragment : Fragment(), CategoriesCallBack, BooksListCallBack, SearchRe
             categoriesAdapter.notifyDataSetChanged()
             binding.categoriesRv.scrollToPosition(0)
 
-            binding.categoriesRv.visibility = View.VISIBLE
+            if (binding.searchResultsRv.visibility == View.GONE) {
+                binding.categoriesRv.visibility = View.VISIBLE
+            }
             binding.categoryShimmer.stopShimmer()
             binding.categoryShimmer.visibility = View.GONE
         }
@@ -151,7 +153,9 @@ class HomeFragment : Fragment(), CategoriesCallBack, BooksListCallBack, SearchRe
             booksListAdapter.notifyDataSetChanged()
             binding.swipeRefreshLayout.isRefreshing = false
 
-            binding.booksListRv.visibility = View.VISIBLE
+            if (binding.searchResultsRv.visibility == View.GONE) {
+                binding.booksListRv.visibility = View.VISIBLE
+            }
             binding.booksListShimmer.stopShimmer()
             binding.booksListShimmer.visibility = View.GONE
         }

@@ -85,7 +85,7 @@ class SocialMediaRefFragment : Fragment() {
 
     private fun initObservers() {
         viewModel.socialMediaRefData.observe(requireActivity()) {
-            socialMediaRef = it
+            socialMediaRef = it ?: SocialMediaReferences()
             initViews()
             isDataLoading(false)
         }
